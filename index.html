@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday, Pattu</title>
+    <meta
+      name="description"
+      content="A luxury digital love letter and birthday gift for Susmitha."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__content">
+        <div class="loader__heart">❤</div>
+        <p>Loading Memories ❤️</p>
+      </div>
+    </div>
+
+    <div class="floating-hearts" id="floating-hearts"></div>
+    <div class="sparkles" id="sparkles"></div>
+
+    <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false">
+      <span class="music-toggle__icon">♫</span>
+      <span class="music-toggle__text">Play Music</span>
+    </button>
+
+    <audio id="bg-music" loop preload="none">
+      <!-- Replace with your music file -->
+      <source src="" type="audio/mpeg" />
+    </audio>
+
+    <main>
+      <section class="hero section section--full" id="hero">
+        <div class="hero__glow hero__glow--one"></div>
+        <div class="hero__glow hero__glow--two"></div>
+        <div class="container hero__content">
+          <p class="eyebrow">For Susmitha, my Pattu</p>
+          <h1>Happy Birthday, Pattu <span class="pulse-heart">❤️</span></h1>
+          <p class="hero__subtitle">
+            To the girl who made my world brighter, happier, and more beautiful every single day.
+          </p>
+          <p class="hero__date">
+            24 May 2024 — The day our story began, and now our 3rd birthday together ✨
+          </p>
+          <button class="button button--primary" id="open-heart" type="button">
+            Open My Heart
+          </button>
+        </div>
+      </section>
+
+      <section class="section" id="story">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Chapter One</p>
+            <h2>Our Story ❤️</h2>
+          </div>
+
+          <div class="glass timeline reveal">
+            <article class="timeline__item reveal">
+              <span class="timeline__date">18 May 2024</span>
+              <h3>The Beginning</h3>
+              <p>
+                The day I met the most special person in my life and gathered the courage to tell
+                her how I felt.
+              </p>
+            </article>
+
+            <article class="timeline__item reveal">
+              <span class="timeline__date">24 May 2024</span>
+              <h3>The Day You Said Yes</h3>
+              <p>The day that changed everything for me.</p>
+            </article>
+
+            <article class="timeline__item reveal">
+              <span class="timeline__date">Today</span>
+              <h3>your 3rd Birthday Together</h3>
+              <p>
+                A celebration of your third birthday with me and all the beautiful memories we've
+                created together since the day we met.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="letter">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">From My Heart</p>
+            <h2>A Letter For You ❤️</h2>
+          </div>
+
+          <div class="glass letter-card reveal">
+            <div class="letter-card__shine"></div>
+            <div class="typewriter" id="typewriter" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="gallery">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Captured Joy</p>
+            <h2>Our Favorite Memories 📸</h2>
+          </div>
+
+          <div class="gallery reveal">
+            <button
+              class="gallery__item"
+              type="button"
+              data-title="The Day We Met"
+              data-image="pictures/WhatsApp Image 2026-06-18 at 11.02.07 PM.jpeg"
+              style="--bg-image: url('pictures/WhatsApp Image 2026-06-18 at 11.02.07 PM.jpeg')"
+            >
+              <span>The Day We Met</span>
+            </button>
+            <button
+              class="gallery__item gallery__item--tall"
+              type="button"
+              data-title="Memory 02"
+              data-image="pictures/WhatsApp Image 2026-06-18 at 10.55.41 PM (1).jpeg"
+              style="--bg-image: url('pictures/WhatsApp Image 2026-06-18 at 10.55.41 PM (1).jpeg')"
+            >
+              <span>Memory 02</span>
+            </button>
+            <button
+              class="gallery__item"
+              type="button"
+              data-title="Memory 03"
+              data-image="pictures/WhatsApp Image 2026-06-18 at 10.55.41 PM.jpeg"
+              style="--bg-image: url('pictures/WhatsApp Image 2026-06-18 at 10.55.41 PM.jpeg')"
+            >
+              <span>Memory 03</span>
+            </button>
+            <button
+              class="gallery__item gallery__item--wide"
+              type="button"
+              data-title="Memory 04"
+              data-image="pictures/WhatsApp Image 2026-06-18 at 10.55.50 PM (1).jpeg"
+              style="--bg-image: url('pictures/WhatsApp Image 2026-06-18 at 10.55.50 PM (1).jpeg')"
+            >
+              <span>Memory 04</span>
+            </button>
+            <button
+              class="gallery__item"
+              type="button"
+              data-title="Memory 05"
+              data-image="pictures/WhatsApp Image 2026-06-18 at 10.55.50 PM (2).jpeg"
+              style="--bg-image: url('pictures/WhatsApp Image 2026-06-18 at 10.55.50 PM (2).jpeg')"
+            >
+              <span>Memory 05</span>
+            </button>
+            <button
+              class="gallery__item gallery__item--tall"
+              type="button"
+              data-title="Memory 06"
+              data-image="pictures/WhatsApp Image 2026-06-18 at 10.55.50 PM.jpeg"
+              style="--bg-image: url('pictures/WhatsApp Image 2026-06-18 at 10.55.50 PM.jpeg')"
+            >
+              <span>Memory 06</span>
+            </button>
+            <button
+              class="gallery__item"
+              type="button"
+              data-title="Memory 07"
+              data-image="pictures/WhatsApp Image 2026-06-18 at 10.55.51 PM (1).jpeg"
+              style="--bg-image: url('pictures/WhatsApp Image 2026-06-18 at 10.55.51 PM (1).jpeg')"
+            >
+              <span>Memory 07</span>
+            </button>
+            <button
+              class="gallery__item"
+              type="button"
+              data-title="Memory 08"
+              data-image="pictures/WhatsApp Image 2026-06-18 at 10.55.51 PM (2).jpeg"
+              style="--bg-image: url('pictures/WhatsApp Image 2026-06-18 at 10.55.51 PM (2).jpeg')"
+            >
+              <span>Memory 08</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section" id="counter">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Every Moment</p>
+            <h2>We've Been Together For ❤️</h2>
+            <p class="section-heading__sub">Since 24 May 2024</p>
+          </div>
+
+          <div class="glass counter reveal">
+            <div class="counter__grid">
+              <div class="counter__item">
+                <span id="days">000</span>
+                <small>Days</small>
+              </div>
+              <div class="counter__item">
+                <span id="hours">00</span>
+                <small>Hours</small>
+              </div>
+              <div class="counter__item">
+                <span id="minutes">00</span>
+                <small>Minutes</small>
+              </div>
+              <div class="counter__item">
+                <span id="seconds">00</span>
+                <small>Seconds</small>
+              </div>
+            </div>
+            <p class="counter__note">Every second with you is my favorite moment.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="surprise">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">One More Gift</p>
+            <h2>Birthday Surprise</h2>
+          </div>
+
+          <div class="surprise reveal">
+            <button class="gift" id="gift" type="button" aria-expanded="false">
+              <span class="gift__lid"></span>
+              <span class="gift__box"></span>
+              <span class="gift__ribbon gift__ribbon--vertical"></span>
+              <span class="gift__ribbon gift__ribbon--horizontal"></span>
+            </button>
+            <div class="glass surprise__message" id="surprise-message" hidden>
+              <p>My greatest gift wasn't finding someone perfect. It was finding you. ❤️</p>
+            </div>
+            <div class="confetti-layer" id="confetti-layer" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--end" id="final">
+        <div class="container final reveal">
+          <p class="final__quote">"Every love story is beautiful, but ours is my favorite."</p>
+          <h2>Happy Birthday Susmitha ❤️</h2>
+          <p class="final__note">Forever grateful for you, Alagis.</p>
+          <div class="final__heart">❤</div>
+          <p class="final__credit">Made with ❤️ by Vinu</p>
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox__close" id="lightbox-close" type="button" aria-label="Close gallery">
+        ×
+      </button>
+      <div class="lightbox__content glass">
+        <img class="lightbox__image" id="lightbox-image" src="" alt="Selected memory" />
+        <p id="lightbox-title">Memory</p>
+        <small>A little moment from your story together.</small>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
