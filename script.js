@@ -23,6 +23,7 @@ const surpriseMessage = document.getElementById("surprise-message");
 const confettiLayer = document.getElementById("confetti-layer");
 const floatingHearts = document.getElementById("floating-hearts");
 const sparkles = document.getElementById("sparkles");
+const memoryFloats = document.getElementById("memory-floats");
 const lightbox = document.getElementById("lightbox");
 const lightboxClose = document.getElementById("lightbox-close");
 const lightboxImage = document.getElementById("lightbox-image");
@@ -35,6 +36,20 @@ const counterParts = {
   minutes: document.getElementById("minutes"),
   seconds: document.getElementById("seconds"),
 };
+
+const memoryPhotos = [
+  "pictures/WhatsApp Image 2026-06-18 at 11.02.07 PM.jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.17 PM.jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.41 PM (1).jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.41 PM.jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.50 PM (1).jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.50 PM (2).jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.50 PM.jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.51 PM (1).jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.51 PM (2).jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.51 PM.jpeg",
+  "pictures/WhatsApp Image 2026-06-18 at 10.55.52 PM.jpeg",
+];
 
 let letterStarted = false;
 let surpriseOpened = false;
@@ -87,6 +102,31 @@ function createAmbientDecor() {
     sparkle.style.animationDelay = `${Math.random() * 3}s`;
     sparkles.appendChild(sparkle);
   }
+}
+
+function createMemoryFloats() {
+  memoryPhotos.forEach((photo, index) => {
+    const frame = document.createElement("div");
+    const image = document.createElement("img");
+
+    frame.className = "memory-float";
+    frame.style.left = `${2 + Math.random() * 86}%`;
+    frame.style.animationDuration = `${20 + Math.random() * 16}s`;
+    frame.style.animationDelay = `${Math.random() * 14}s`;
+    frame.style.setProperty("--drift-x", `${-36 + Math.random() * 72}px`);
+    frame.style.setProperty("--rotate", `${-8 + Math.random() * 16}deg`);
+
+    image.src = encodeURI(photo);
+    image.alt = "";
+    image.loading = "lazy";
+
+    if (index % 3 === 0) {
+      frame.style.width = "clamp(92px, 11vw, 160px)";
+    }
+
+    frame.appendChild(image);
+    memoryFloats.appendChild(frame);
+  });
 }
 
 function typeLetter() {
@@ -248,6 +288,7 @@ revealObserver.observe(typewriter);
 window.addEventListener("load", () => {
   updateCounter();
   createAmbientDecor();
+  createMemoryFloats();
 
   // Try autoplay first, then fall back to the first user interaction if Chrome blocks it.
   startBackgroundMusic()
