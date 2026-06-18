@@ -37,6 +37,14 @@ body {
   overflow-x: hidden;
 }
 
+body.story-locked {
+  overflow: hidden;
+}
+
+body.story-locked main > .section:not(.hero) {
+  display: none;
+}
+
 body.lightbox-open {
   overflow: hidden;
 }
@@ -57,6 +65,7 @@ button {
 
 .section--full {
   min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   align-items: center;
 }
@@ -148,24 +157,27 @@ button {
   position: relative;
   z-index: 2;
   text-align: center;
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .hero h1 {
-  font-size: clamp(4rem, 11vw, 7.8rem);
+  font-size: clamp(3.1rem, 8vw, 6.1rem);
   max-width: 10ch;
-  margin: 0 auto 1.2rem;
+  margin: 0 auto 0.9rem;
+  line-height: 1.02;
 }
 
 .hero__subtitle {
   max-width: 42rem;
-  margin: 0 auto 1rem;
-  font-size: clamp(1rem, 2.6vw, 1.3rem);
-  line-height: 1.8;
+  margin: 0 auto 0.75rem;
+  font-size: clamp(0.98rem, 2.2vw, 1.2rem);
+  line-height: 1.6;
 }
 
 .hero__date {
-  margin: 0 0 2rem;
-  font-size: 1rem;
+  margin: 0 0 1.4rem;
+  font-size: 0.98rem;
 }
 
 .button {
@@ -183,7 +195,6 @@ button {
 }
 
 .button:hover,
-.music-toggle:hover,
 .gallery__item:hover,
 .gift:hover {
   transform: translateY(-4px);
@@ -220,6 +231,7 @@ button {
 
 .pulse-heart {
   display: inline-block;
+  font-size: 43px;
   animation: pulse 1.5s infinite ease-in-out;
 }
 
@@ -542,30 +554,6 @@ button {
   color: var(--text-soft);
 }
 
-.music-toggle {
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 18;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  border: 1px solid rgba(255, 255, 255, 0.64);
-  border-radius: 999px;
-  padding: 0.9rem 1.1rem;
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.62);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  cursor: pointer;
-}
-
-.music-toggle.is-active {
-  background: linear-gradient(135deg, rgba(245, 139, 176, 0.88), rgba(199, 107, 139, 0.85));
-  color: #fff;
-}
-
 .floating-hearts,
 .sparkles {
   position: fixed;
@@ -759,6 +747,30 @@ button {
 
   .timeline {
     padding: 2.25rem;
+  }
+}
+
+@media (max-height: 760px) {
+  .hero__content {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.7rem, 7vw, 5.1rem);
+  }
+
+  .hero__subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+  }
+
+  .hero__date {
+    margin-bottom: 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  .button {
+    padding: 0.9rem 1.4rem;
   }
 }
 

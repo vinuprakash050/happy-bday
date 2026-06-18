@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="story-locked">
     <div class="loader" id="loader" aria-hidden="true">
       <div class="loader__content">
         <div class="loader__heart">❤</div>
@@ -27,15 +27,10 @@
     <div class="floating-hearts" id="floating-hearts"></div>
     <div class="sparkles" id="sparkles"></div>
 
-    <button class="music-toggle" id="music-toggle" type="button" aria-pressed="false">
-      <span class="music-toggle__icon">♫</span>
-      <span class="music-toggle__text">Play Music</span>
-    </button>
-
-    <audio id="bg-music" loop preload="none">
-      <!-- Replace with your music file -->
-      <source src="" type="audio/mpeg" />
+    <audio id="bg-music" loop preload="auto" autoplay>
+      <source src="Nilaave Vaa.mp3" type="audio/mpeg" />
     </audio>
+
 
     <main>
       <section class="hero section section--full" id="hero">
@@ -237,7 +232,7 @@
               <span class="gift__ribbon gift__ribbon--horizontal"></span>
             </button>
             <div class="glass surprise__message" id="surprise-message" hidden>
-              <p>My greatest gift wasn't finding someone perfect. It was finding you. ❤️</p>
+              <p>Since 24 May 2024, life has been a little more beautiful. ❤️</p>
             </div>
             <div class="confetti-layer" id="confetti-layer" aria-hidden="true"></div>
           </div>

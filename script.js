@@ -16,7 +16,6 @@ const letterParagraphs = [
 
 const loader = document.getElementById("loader");
 const openHeartButton = document.getElementById("open-heart");
-const musicToggle = document.getElementById("music-toggle");
 const bgMusic = document.getElementById("bg-music");
 const typewriter = document.getElementById("typewriter");
 const gift = document.getElementById("gift");
@@ -39,35 +38,13 @@ const counterParts = {
 
 let letterStarted = false;
 let surpriseOpened = false;
+let hasTriedMusicUnlock = false;
 
 openHeartButton.addEventListener("click", () => {
+  document.body.classList.remove("story-locked");
   document.getElementById("story").scrollIntoView({ behavior: "smooth" });
 });
 
-musicToggle.addEventListener("click", async () => {
-  const hasSource = bgMusic.querySelector("source")?.getAttribute("src");
-
-  if (!hasSource) {
-    musicToggle.querySelector(".music-toggle__text").textContent = "Add Music File";
-    return;
-  }
-
-  if (bgMusic.paused) {
-    try {
-      await bgMusic.play();
-      musicToggle.classList.add("is-active");
-      musicToggle.setAttribute("aria-pressed", "true");
-      musicToggle.querySelector(".music-toggle__text").textContent = "Pause Music";
-    } catch (error) {
-      musicToggle.querySelector(".music-toggle__text").textContent = "Tap Again";
-    }
-  } else {
-    bgMusic.pause();
-    musicToggle.classList.remove("is-active");
-    musicToggle.setAttribute("aria-pressed", "false");
-    musicToggle.querySelector(".music-toggle__text").textContent = "Play Music";
-  }
-});
 
 function pad(value, size = 2) {
   return String(value).padStart(size, "0");
@@ -213,6 +190,24 @@ function closeLightbox() {
   document.body.classList.remove("lightbox-open");
 }
 
+function startBackgroundMusic() {
+  if (!bgMusic) return Promise.resolve();
+
+  bgMusic.volume = 1;
+  return bgMusic.play();
+}
+
+function unlockMusicOnFirstInteraction() {
+  if (hasTriedMusicUnlock) return;
+  hasTriedMusicUnlock = true;
+
+  startBackgroundMusic().finally(() => {
+    window.removeEventListener("click", unlockMusicOnFirstInteraction);
+    window.removeEventListener("touchstart", unlockMusicOnFirstInteraction);
+    window.removeEventListener("keydown", unlockMusicOnFirstInteraction);
+  });
+}
+
 gift.addEventListener("click", launchSurprise);
 lightboxClose.addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", (event) => {
@@ -253,8 +248,18 @@ revealObserver.observe(typewriter);
 window.addEventListener("load", () => {
   updateCounter();
   createAmbientDecor();
+
+  // Try autoplay first, then fall back to the first user interaction if Chrome blocks it.
+  startBackgroundMusic()
+    .catch(() => {
+      window.addEventListener("click", unlockMusicOnFirstInteraction, { once: true });
+      window.addEventListener("touchstart", unlockMusicOnFirstInteraction, { once: true });
+      window.addEventListener("keydown", unlockMusicOnFirstInteraction, { once: true });
+    });
+
   window.setTimeout(() => loader.classList.add("is-hidden"), 1200);
 });
+
 
 updateCounter();
 window.setInterval(updateCounter, 1000);
