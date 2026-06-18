@@ -56,6 +56,9 @@ let surpriseOpened = false;
 let hasTriedMusicUnlock = false;
 
 openHeartButton.addEventListener("click", () => {
+  startBackgroundMusic().catch(() => {
+    // ignore if the browser still blocks playback
+  });
   document.body.classList.remove("story-locked");
   document.getElementById("story").scrollIntoView({ behavior: "smooth" });
 });
